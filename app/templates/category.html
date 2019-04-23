@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+<div class="row">
+    {% for pitch in pitches %}
+    <div class="col-md-6">
+            <div class="card card-cascade">
+                    <div class="view view-cascade gradient-card-header blue-gradient">
+                      <h2 class="card-header-title mb-3">{{pitch.title}}</h2>
+                      <p class="card-header-subtitle mb-0">Category: {{pitch.category}}</p>
+                  
+                    </div>
+                    <div class="card-body card-body-cascade text-center">
+                      <p class="">{{pitch.description}}</p>
+                      <p class="text-right">Posted by :{{pitch.user.username}}</p> 
+                  
+                      <hr>
+                        
+                      <div class=""><a href="{{url_for('main.new_comment',pitch_id = pitch.id)}}"> Add a comment/View comments</a></div>
+                      
+                    </div>
+                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                            <ul class="list-unstyled list-inline font-small">
+                              <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>{{pitch.posted_p}}</li>
+                              <li class="list-inline-item pr-2">
+                                <a class="white-text" href="{{url_for('main.upvote',pitch_id = pitch.id)}}"><i class="far fa-thumbs-up"></i> Upvote {{pitch.upvotes.count()}} </a></li> 
+                              <li class="list-inline-item pr-2 "><a class="white-text" href="{{url_for('main.downvote',pitch_id = pitch.id)}}"><i class="far fa-thumbs-down"></i> Downvote {{pitch.downvotes.count()}}</a></li>
+                              <input type=hidden value="{{ next or '' }}" name=next>
+                            </ul>
+                          </div>
+          </div>
+          <hr>
+    </div>
+                
+                
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
