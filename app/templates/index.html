@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="jumbotron" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+      <div class="text-white text-center py-5 px-4 my-5">
+        <div>
+          <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Welcome to IJPitch </strong></h2>
+          <p class="mx-5 mb-5">Where your creativity is boundless! Please feel free to explore the pitches in the categories provided below and add your own ideas to the vibrant community.
+          </p>
+          <hr>
+          <a class="btn btn-outline-white btn-md" href="/pickup"><i class="fas fa-clone left"></i> <h4>Pick up lines</h4></a>
+          <a class="btn btn-outline-white btn-md" href="/product"><i class="fas fa-clone left"></i> <h4>Product Promotion</h4></a>
+          <a class="btn btn-outline-white btn-md" href="/business"><i class="fas fa-clone left"></i> <h4>Business pitches</h4></a>
+          <a class="btn btn-outline-white btn-md" href="/pitch/new"><i class="fas fa-clone left"></i><h4>New pitch</h4></a>
+        </div>
+      </div>
+    </div>
+    <!-- Card Dark -->
+<div class="card">
+        
+        <div class="view overlay">
+                <img class="card-img-top" src="https://static1.squarespace.com/static/5732355e356fb056e186ae82/t/5c6758ede2c48352e11b990a/1550276861408/PP-Blue.png?format=2500w" alt="Card image cap">
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+      </div>
+      <!-- Card Dark -->
+ 
+</div>
+
+
+{% endblock %}
