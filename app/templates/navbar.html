@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+    <a class="navbar-brand" href="/"><h3>IJPITCH</h3></a>
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+  
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/"><h4>Home</h4>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mypitches"><h4>My pitches</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pitch/new"><h4>New pitch</h4></a>
+        </li>
+  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"><h4>Categories</h4></a>
+          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/product">Product</a>
+            <a class="dropdown-item" href="/business">Business</a>
+            <a class="dropdown-item" href="/pickup">Pickup</a>
+          </div>
+        </li>
+  
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if current_user.is_authenticated %}
+        <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+        <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+        {% else %}
+        <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+        {%endif%}
+      </ul>
+  
+  </nav>
+  
